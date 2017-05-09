@@ -1,0 +1,717 @@
+*{
+    padding:0;
+    margin:0;
+    color:#fff;
+    font-family: "Verdana","sans-serif";
+    text-decoration: none;
+    border:none;
+    outline: none;
+}
+html,body{
+    height: 100%;
+}
+body{
+    background-color: #222;
+}
+#overlay{
+    pointer-events: none;
+    background-color:#000;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-bottom: 100000px;
+    margin-bottom: -100000px;
+    overflow: hidden;
+    z-index: 100000;
+}
+header{
+    position: absolute;
+    z-index: 1000;
+    width:100%;
+    height: 50px;
+    border-top: #6ff 1px solid;
+    background-color: #181818;
+
+}
+header h1{
+    margin-left: -10000px;
+    float:left;
+}
+header a{
+    float:left;
+    overflow: hidden;
+}
+
+battle,battle position,character,enemy,charactermodel,enemymodel,pointerAction,action,turns,powers,power,#skip,hp,ep,error,end,icon,icon div,solarsystems,planets,galaxies,solarsystem,planet,galaxy,sun,#ship{
+    display: block;
+    box-sizing: border-box;
+}
+
+/*-------------MENU---------------*/
+header menu #menu_btn{
+    cursor: pointer;
+    display:none;
+}
+header menu a,header menu #menu_btn{
+    line-height: 60px;
+    height: 50px;
+    padding: 0 10px;
+}
+header menu a:hover,header menu a:focus{
+    color:#cff;
+    background-color: #111;
+    border-bottom: #6ff 2px solid; 
+}
+#banner{
+    width:165px;
+    text-align: center;
+    font-size: 37px;
+    font-weight: bold;
+    line-height: 45px;
+}
+#battle header menu a:first-of-type{
+    width:20px;
+    text-align: center;
+}
+#menu_logout{
+    float:right;
+}
+#menu_logout a{
+    background-color: #0c0;
+}
+#menu_logout a:hover,#menu_logout a:focus{
+    background-color: #4a4;
+    border:0;
+}
+menu #menu_logout #logout_confirm{
+    background-color:#f22;
+    display: none;
+    width: auto;
+}
+menu #menu_logout #menu_light{
+    cursor: pointer;
+}
+/*-------------------------------------------- SHIP ------------------------------------------*/
+#ship{
+    margin: 0 auto;
+    width: 336px;
+    height: 500px;
+    background-image: url(images/ship/main.png);
+}
+#ship[highlight='bridge']{
+    background-image: url(images/ship/bridge.png);
+}
+#ship[highlight='battle']{
+    background-image: url(images/ship/battlesimulator.png);
+}
+#ship[highlight='engine']{
+    background-image: url(images/ship/engine.png);
+}
+/*-------------------------------------------- MAP ------------------------------------------*/
+#map_btn:focus{
+    cursor: wait;
+}
+#map{
+    background-color: #080808;
+    display: none;
+    position: fixed;
+    left:0;
+    right: 0;
+    top:50px;
+    bottom: 0;
+    border: #6ff 2px solid;
+    overflow: hidden;
+}
+#map solarsystems,#map galaxies,#map planets{
+    position: relative;
+    height: 100%;
+    width: 100vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vh;
+    line-height: 5vh;
+    background: #000;
+    margin:0 auto;
+    border-radius: 25vh;
+    text-shadow:0 0 2px #000,0 0 2px #000;
+}
+#map galaxies{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(images/world/galaxy/1.png);
+}
+#map planet, #map sun,#map planet div,#map solarsystem,#map planet{
+    position: absolute;
+    border-radius: 100vh;
+}
+#map sun{
+    width: 20vh;
+    height: 20vh;
+    top:40%;
+    left:40%;
+    background-color: #fff;
+    box-shadow: 0 0 25vh 5vh #faa;
+}
+#map planet{
+    border:1px solid #111;
+}
+#map planet[position='0']{
+    width: 40vh;
+    height: 40vh;
+    top:30%;
+    left:30%;
+}
+#map planet[position='1']{
+    width: 60vh;
+    height: 60vh;
+    top:20%;
+    left:20%;
+}
+#map planet[position='2']{
+    width: 80vh;
+    height: 80vh;
+    top:10%;
+    left:10%;
+}
+#map planet[position='3']{
+    width: 100vh;
+    height: 100vh;
+    top:0%;
+    left:0%;
+}
+#map planet div:hover{
+    margin:-5px;
+    border: 5px solid #8f8;
+}
+#map solarsystem:hover{
+    background-color: #fff;
+}
+#map planet div, #map solarsystem{
+    width:5vh;
+    height: 0;
+    padding-top: 5vh;
+    top:15%;
+    left:15%;
+    background-color: #520;
+    border-radius: 100vh;
+    font-size: 10px;
+    text-align: center;
+    cursor:zoom-in;
+    box-shadow: 0 0 2vh #853;
+}
+#map solarsystem{
+    background-color: #aaa;
+    box-shadow: 0 0 2vh #fff;
+    text-shadow:0 0 2px #000,0 0 2px #000;
+}
+#map planets planet{
+    background-color: #af8;
+    width:75vh;
+    height:75vh;
+    left:12.5vh;
+    top:10vh;
+}
+/*--------------------------------------------GROUP------------------------------------------*/
+#content{
+    position: absolute;
+    top:52px;
+    bottom:0;
+    width: 100%;
+}
+#content .group{
+    margin:10px 2%;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    background-color:#44a;
+    cursor:pointer;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#content .group button{
+    float:right;
+    width:0%;
+    height: 100px;
+    background-color: #4a4;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#content #new{
+    background-color:#4a4;
+}
+/*------------------------------------------CREATE GROUP-------------------------------*/
+#content #role{
+    height: 100%;
+}
+#content h1{
+    height: 100px;
+    width: 80%;
+    line-height: 100px;
+    float:left;
+}
+#content #role button,#content #powerset button{
+    height: 60px;
+    width:20%;
+    font-size: 20px;
+    margin:20px 0;
+    border:1px solid #090;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px;
+    background-color: #4a4;
+}
+#content #role button:hover,#content #role button:focus,#content #powerset button:hover,#content #powerset button:focus{
+    background-color:#6d6;
+}
+#content #role button:disabled,#content #powerset button:disabled{
+    visibility: hidden;
+}
+#role_tank,#role_supp,#role_heal,#role_cont,#role_dama{
+    cursor:pointer;
+    float: left;
+    width:20%;
+    height: 200px;
+    font-size:30px;
+    line-height: 200px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#role_tank{background-color: #369;}
+#role_supp{background-color: #993;}
+#role_heal{background-color: #393;}
+#role_cont{background-color: #639;}
+#role_dama{background-color: #933;}
+#role_tank[class='active'],#role_tank[class='active selected']{background-color: #36f;color:#009;}
+#role_supp[class='active'],#role_supp[class='active selected']{background-color: #dd3;color:#990;}
+#role_heal[class='active'],#role_heal[class='active selected']{background-color: #3f3;color:#090;}
+#role_cont[class='active'],#role_cont[class='active selected']{background-color: #63f;color:#309;}
+#role_dama[class='active'],#role_dama[class='active selected']{background-color: #f33;color:#900;}
+#role_tank[class='active selected'],#role_supp[class='active selected'],#role_heal[class='active selected'],#role_cont[class='active selected'],#role_dama[class='active selected']{width:100%;height: 50px;line-height: 50px;cursor: default;}
+
+.selected input{
+    background-color:inherit;
+    color:inherit;
+    font-size: inherit;
+    text-align: inherit;
+}
+
+#content #role #desc,#content #powersets{
+    padding: 20px 2%;
+    margin: 20px 2%;
+    background-color: #555; 
+}
+#content #role #desc div{display:none;}
+#content #role #desc #startText{display:block;}
+#power{
+    float:left;
+    margin:-1px;
+    background-color: #888;
+    width: 14.25%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border:1px solid #111;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#power{
+    font-weight: bold;
+    font-size: 18px;
+}
+#power[element='fire'],#power[element='water'],#power[element='light'],#power[element='earth'],#power[element='mental'],#power[element='ice']{
+    font-weight: normal;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #444;
+    color:#fff;
+    border-color: #111;
+}
+.secondary div{
+    pointer-events: none;
+    opacity: .1;
+}
+.secondary #power[element='fire'],.secondary #power[element='water'],.secondary #power[element='light'],.secondary #power[element='earth'],.secondary #power[element='mental'],.secondary #power[element='ice']
+{background-color:#222;}
+#power[element='fire'][class="active"],#power[element='fire']:hover{background-color:#c22}
+#power[element='water'][class="active"],#power[element='water']:hover{background-color:#22c}
+#power[element='light'][class="active"],#power[element='light']:hover{background-color:#ff9;color:#000}
+#power[element='earth'][class="active"],#power[element='earth']:hover{background-color:#2c2}
+#power[element='mental'][class="active"],#power[element='mental']:hover{background-color:#82c}
+#power[element='ice'][class="active"],#power[element='ice']:hover{background-color:#0af}
+#powerset #changepowersetheader,#secondarypowersetheader,#charnameheader{display:none;}
+/*------------BATTLE--------------*/
+/*  BACKGROUND IMGAGES  */
+battle{
+    background: #000 top center no-repeat url(images/world/day/plain/001.jpg);
+}
+character icon div{
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+character[role='1'] icon div{background-image: url(images/battle/ui/frameunit_tnk.png);}
+character[role='2'] icon div{background-image: url(images/battle/ui/frameunit_sup.png);}
+character[role='3'] icon div{background-image: url(images/battle/ui/frameunit_hlr.png);}
+character[role='4'] icon div{background-image: url(images/battle/ui/frameunit_crt.png);}
+character[role='5'] icon div{background-image: url(images/battle/ui/frameunit_dmg.png);}
+/* -------------------- */
+battle{
+    position: relative;
+    margin: 0 auto;
+    width:70%;
+    height: 40vw;
+    background-size: 100% auto;
+}
+battlegroup,enemygroup{
+    float:left;
+    width: 15%;
+    cursor: default;
+}
+character,enemy{
+    width: 100%;
+    height: 4vw;
+    font-size: .7vw;
+    text-align: center;
+    background-color: #444;
+}
+enemygroup{
+    float: right;
+}
+character:hover,enemy:hover{
+    background-color:#555;
+}
+icon{
+    width:5vw;
+    height:100%;
+    float: left;
+    line-height: 2.5vw;
+    font-size: 1vw;
+    text-shadow:0 0 5px;
+    color: #000;
+}
+icon div{
+    background-color: #000;
+    width: 4vw;
+    height: 4vw;
+    float: right;
+    border: 5px solid;
+    border-color:rgba(0,0,0,0);
+}
+character[thread="1"] icon{
+    color: #ec0;
+}
+character[thread="0"] icon,enemy[currenttarget] icon{
+    font-size: 1.7vw;
+    color: #f30;
+    font-weight: bold;
+}
+character[active='1'] icon div,enemy[active='1'] icon div{
+    border-color:#dc0;
+    box-shadow: 0px 0px 5px 1px #dc0;
+}
+*[currenttarget] icon div{
+    border-style: double;
+    border-color: #d00;
+    border-radius: 10vw;
+    border-top-color:rgba(0,0,0,0);
+    border-bottom-color:rgba(0,0,0,0);
+}
+hp,ep{
+    float:right;
+    width:66%;
+}
+hp{
+    background-color: #500;
+}
+ep{
+    background-color: #222;
+}
+hp div,ep div{
+    height: 1vw;
+    line-height: 1vw;
+    text-align: left;
+    font-size: .8vw;
+    background-color: #f22;
+}
+ep div{
+    width:50%;
+    background-color: #fd0;
+    text-shadow:0 0 5px #330;
+}
+character[dead='1'],enemy[dead='1'],character[dead='1'] ep,enemy[dead='1'] ep,character[dead='1'] ep div,enemy[dead='1'] ep div{
+    background-color: #500;
+}
+battle position,battle charactermodel,battle enemymodel{
+    float:left;
+    width:5%;
+    height: 6.25%;
+    pointer-events: auto;
+}
+battle position{
+    visibility:hidden;
+    background-color: rgba(0,200,0,.3);
+    border:.1vw solid rgba(0,200,0,.5);
+    border-radius: 1vw;
+}
+battle position:hover{
+    background-color: rgba(0,200,0,.8);
+    border-color: #030;
+}
+position[direction='tl']{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+position[direction='tr']{
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+position[direction='bl']{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+position[direction='br']{
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+position[direction='bl'],position[direction='b'],position[direction='br']{
+    border-top: none;
+}
+position[direction='tl'],position[direction='t'],position[direction='tr']{
+    border-bottom: none;
+}
+position[direction='tl'],position[direction='l'],position[direction='bl']{
+    border-right: none;
+}
+position[direction='tr'],position[direction='r'],position[direction='br']{
+    border-left: none;
+}
+position[direction='t'],position[direction='b']{
+    border-left: none;
+    border-right: none;
+}
+position[direction='l'],position[direction='r']{
+    border-top: none;
+    border-bottom: none;
+}
+position[direction='t'],position[direction='b'],position[direction='l'],position[direction='r']{
+    border-radius: 0;
+}
+battle charactermodel,battle enemymodel{
+    pointer-events: none;
+    position: absolute;
+    font-weight: bold;
+    line-height: 8vw;
+    text-align: center;
+    width:4%;
+    height: 12.5%;
+    border:.05vw solid #000;
+    border-radius: 10vw;
+}
+battle charactermodel{
+    background-color: #08c;
+}
+battle enemymodel{
+    background-color: #f40;
+}
+#skip{
+    float: left;
+    text-align: center;
+    width:50px;
+    line-height: 50px;
+    height: 50px;
+    background-color: #ca0;
+    cursor: pointer;
+}
+pointerAction, turns{
+    margin:2px;
+    padding:2px;
+    height: 47px;
+    float:left;
+}
+pointerAction action, turns turn{
+    transition: .1s .5s all;
+    text-align: center;
+    font-size: 9px;
+    float:left;
+    margin-left: 0;
+    max-width:40px;
+    max-height:40px;
+    padding-top: 25px;
+    overflow: hidden;
+    border-top:5px solid;
+    cursor: default;
+}
+turns{
+    float:right;
+    margin-right: 1%;
+    background: none;
+    border: none;
+}
+turns turn{
+    border: 1px solid;
+    border-top:5px solid;
+    margin: 0 5px;
+    border-radius:25px;
+    padding-top: 0;
+    line-height: 36px;
+}
+pointerAction action[actortype='e'], turns turn[actortype='e']{
+    border-color: #f44;
+    background-color:#800;
+}
+pointerAction action[actortype='p'], turns turn[actortype='p']{
+    border-color: #4f4;
+    background-color:#282;
+}
+turns turn:first-of-type{
+    width: auto;
+    border-color: #fe0;
+    padding:0 15px;
+}
+pointerAction action p{
+    margin-top: 20px;
+}
+pointerAction action:hover{
+    max-width: 300px;
+    max-height: 500px;
+}
+powers{
+    background-color:#111;
+    padding:1px 15%;
+    height: 50px;
+}
+power{
+    transition: .05s 1s all;
+    float:left;
+    max-width:48px;
+    height: 48px;
+    overflow: hidden;
+    margin-right: 2px;
+    line-height: 48px;
+    border-radius: 25px;
+    background-color: #2ad;
+}
+power:hover{
+    max-width:300px;
+    padding: 0 20px;
+    background-color: #a2d;
+    cursor: pointer;
+}
+error,end{
+    position: relative;
+    float:left;
+    bottom: 20vw;
+    width: 90%;
+    height:5vw;
+    line-height:5vw;
+    margin-left:5%;
+    margin-bottom: -20vw;
+    text-align: center;
+    z-index: 50;
+    font-size: 2vw;
+    color: #f22;
+    font-weight: bold;
+    background-color: rgba(0,0,0,.8);
+    border-radius: 5vw;
+}
+end{
+    opacity: 0;
+    height:90%;
+    bottom: 95%;
+    padding: 5%;
+    border: 0.1vw solid #000;
+}
+end button{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height: 10vw;
+    font-weight: bold;
+    font-size: 2vw;
+    background: #111;
+    border-radius: 5vw;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    cursor: pointer;
+}
+battle .win{
+    color:#222;
+    background-color: rgba(180,160,0,.8);
+}
+battle .win button:hover{
+    background: #5a0;
+}
+battle .lose{
+    color:#111;
+    background-color: rgba(120,0,0,.8);
+}
+battle .lose button:hover{
+    background: #a00;
+}
+footer{
+    position: fixed;
+    width: 100%;
+    background-color:#111;
+    padding-bottom: 100000px;
+    margin-bottom: -100000px;
+    overflow: hidden;
+}
+/*-------------MISC---------------*/
+.c{
+    clear:both;
+}
+::selection{
+    color: #fff;
+    background-color: #5ef;
+}
+.active{border-top:10px solid #fff;margin-top: -10px;}
+/*--------------------------------------------RESIZE-----------------------------------------*/
+@media all and (max-width: 700px) { /* <700 */
+    header menu{
+        position: relative;
+        z-index: 10000;
+    }
+    header menu a,#battle header menu a:first-of-type{
+        display:none;
+        width:90%;
+        padding:10px 5%;
+        font-weight: bold;
+        border-top:1px solid #055;
+        margin-top: 1px;
+        background-color: #181818;
+        border-bottom-width:1px; 
+    }
+    menu a:hover,menu a:focus{
+        margin-bottom: -2px;
+    }
+    #menu_logout{
+        float: none;
+        text-align: right;
+    }
+    #menu_logout a:hover,#menu_logout a:focus{
+        margin-top: 2px;
+        margin-bottom:0px;
+        border:none;
+    }
+    header menu #menu_btn{
+        display:block;
+        font-size: 45px;
+        line-height: 50px;
+        width: 50px;
+        font-weight: bold;
+        text-align: center;
+        float:right;
+    }
+    /* BATTLE*/
+    action,turn{
+        display: none;
+    }
+    action:first-of-type,turn:first-of-type{
+        display: block;
+    }
+}

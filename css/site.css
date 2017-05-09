@@ -1,0 +1,340 @@
+*{
+    padding:0;
+    margin:0;
+    color:#fff;
+    font-family: "Verdana","sans-serif";
+    text-decoration: none;
+    border:none;
+    outline: none;
+}
+#overlay{
+    pointer-events: none;
+    background-color:#000;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-bottom: 100000px;
+    margin-bottom: -100000px;
+    overflow: hidden;
+}
+body{
+    background:#ccc;
+}
+header,footer,menu,#footerbottom{
+    background: #488;
+}
+/*-----------------------------------HEADER-----------------------------------*/
+header{
+    float:left;
+    font-size: 12px;
+    width:150px;
+    height: 50px;
+    margin-right: 20px;
+}
+header h1{
+    margin-left: -10000px;
+    float:left;
+}
+/*------------------------------------MENU------------------------------------*/
+menu{
+    margin:0;
+    border-bottom: #6ff 1px solid;
+}
+menu a{
+    float:left;
+    font-size: 12px;
+    padding:0 10px;
+    line-height: 50px;
+}
+menu a:hover,menu a:focus{
+    background: #088;
+}
+menu #menu_login #menu_light{
+    cursor: pointer;
+}
+#menu_login{
+    float:right;
+}
+menu #menu_btn,#menu_login a{
+    background:#6a6;
+}
+menu #menu_btn:hover,#menu_login a:hover,menu #menu_btn:focus,#menu_login a:focus{
+    background:#4a4;
+}
+menu #menu_btn{
+    display:none;
+    cursor: pointer;
+}
+/*----------------------------------CONTENT----------------------------------*/
+#content{
+    margin:5px;
+    background: #222;
+    padding:10px;
+    min-height: 100px;
+}
+/*----------------------------------GAMELOADER----------------------------------*/
+#loadGame{
+    display:none;
+    background: #ccc;
+    position: relative;
+}
+#loadGame div{
+    background: #0c0;
+    position: absolute;
+    left:0;
+    height: 100%;
+    text-align: center;
+}
+#counterGame{
+    font-weight: bold;
+    text-align: center;
+}
+/*-----------------------------------LOGIN------------------------------------*/
+#content #login,#content #signup{
+    margin:20px auto;
+    width:400px;
+    padding:20px;
+    background: #666;
+    border: #6a6 1px solid;
+}
+
+#content #login input,#content #login button,#content #signup input,#content #signup button,#content #signup select{
+    border:1px solid #333;
+    background: #444;
+    font-weight: bold;
+    padding:3px;
+    width: 130px;
+}
+#content #login #antikeylog #kln,#content #signup #antikeylog #kln{
+    text-align: center;
+}
+#content #login button:focus,#content #login input:focus,#content #login select:focus,#content #signup button:focus,#content #signup input:focus,#content #signup select:focus{
+    background: #585;
+}
+#content #login input,#content #login #login_btn,#content #signup input,#content #signup #signup_btn{
+    width:340px;
+    padding:5px 25px;
+    margin:5px;
+    line-height: 25px;
+    border-radius: 15px;
+}
+#content #login #login_btn,#content #signup #signup_btn{
+    width:390px;
+    border:1px solid #6a6;
+}
+#content #signup{
+    width: 600px;
+}
+#content #signup input{
+    width: 385px;
+    float: right;
+}
+#content #signup #signup_btn{
+    width: 590px;
+    height: 50px;
+    background: #c66;
+    border-color: #822;
+}
+#content #signup label{
+    display: block;
+    float:left;
+    width:150px;
+    line-height: 47px;
+}
+#content #signup select{
+    width: 435px;
+    padding:10px;
+    margin: 5px;
+    margin-right: 6px;
+    float:right;
+    border-radius: 10px;
+}
+#content #signup #antikeylog{
+    float:right;
+}
+#content #signup #antikeylog button{
+    width: 145px;
+}
+#content #signup #antikeylog,#content #signup #antikeyloglabel{
+    display: none;
+}
+/*-----------------------------------USER-----------------------------------*/
+h2{
+    font-size: 75px;
+    line-height: 125px;
+    padding-left: 25px;
+}
+h2 #level{
+    text-align: center;
+    position: relative;
+    font-size: 60px;
+    line-height: 100px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    width:120px;
+    height: 120px;
+    background-color: #35f;
+    float: right;
+}
+h2 #maxxp{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    background-color: #118;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    overflow: hidden;
+}
+h2 #xp{
+    margin-top: -20px;
+    height: 100%;
+    background-color: #181;
+}
+#groups{
+    border:1px solid #000;
+    border-radius: 15px;
+    width:80%;
+    background-color: #111;
+}
+#groups .group{
+    height: 150px;
+    margin: 15px;
+    border:1px solid #000;
+    border-radius: 15px;
+    background-color: #363;
+    overflow: hidden;
+}
+#groups .name{
+    font-weight: bold;
+    background-color: #3a3;
+    width: 150px;
+    line-height: 30px;
+    margin-top: -30px;
+    text-align: center;
+    transform-origin:bottom left;
+    transform: rotate(90deg);
+    float:left;
+}
+#groups .group .character{
+    position: relative;
+    text-align: center;
+    width: 19%;
+    height: 150px;
+    border-left: 1px solid #000;
+    background-color: #252;
+    float: right;
+    font-size: 20px;
+    line-height: 90px;
+}
+#groups .group .power,#groups .group .level{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    line-height: 30px;
+    width: 50%;
+    border-left:1px solid #000;
+    border-top: 1px solid #000;
+    background-color: rgba(250,250,250,.2);
+    float: left;
+    font-size: 12px;
+}
+#groups .group .power[pri='1']{
+    left:0;
+    border-left: none;
+}
+#groups .group .level{
+    bottom: 30px;
+    width:100%;
+}
+/*-----------------------------------FOOTER-----------------------------------*/
+footer{
+    padding:50px;
+    margin-bottom: -207px;
+    border-top: #6ff 1px solid;
+}
+footer #row{
+    width: 150px;
+    float: right;
+}
+footer a{
+    display: table-footer-group;
+    font-size: 10px;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+#footerbottom{
+    position: fixed;
+    width:100%;
+    margin-top: 200px;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
+    overflow: hidden;
+}
+/*------------------------------------MISC------------------------------------*/
+.c{
+    clear:both;
+}
+::selection{
+    color: #fff;
+    background: #5ef;
+}
+/*--------------------------------------------RESIZE-----------------------------------------*/
+@media all and (max-width: 700px) { /* <700 */
+    menu a{
+        display:none;
+        width:90%;
+        padding:10px 5%;
+        font-weight: bold;
+        border-top:1px solid #055;
+    }
+    #menu_login{
+        float: none;
+        text-align: right;
+    }
+    menu #menu_btn{
+        display:block;
+        font-size: 45px;
+        line-height: 50px;
+        width: 50px;
+        font-weight: bold;
+        text-align: center;
+        float:right;
+    }
+    #content #login,#content #signup{
+        width:100%;
+        padding:0;
+        margin:0;
+    }
+    #content #login input,#content #signup input,#content #login #login_btn,#content #signup #signup_btn,#content #signup select{
+        width:86%;
+        margin:2px 5%;
+        padding: 0 2%;
+        height: 35px;
+    }
+
+    #content #signup select,#content #login #login_btn,#content #signup #signup_btn{
+        width: 90%;
+    }
+    #content #login #login_btn,#content #signup #signup_btn{
+        height: 45px;
+    }
+    #content #login #antikeylog,#content #signup #antikeylog{
+        width:90%;
+        margin-right: 5%;
+    }
+    #content #login #antikeylog button,#content #signup #antikeylog button{
+        width:100%;
+    }
+    #content #login #antikeylog{
+        margin-left: 5%;
+    }
+    #content #signup label{
+        display: none;
+    }
+}
